@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
+const expressHbs = require("express-handlebars");
 
 // ROUTES
 const adminData = require("./routes/admin");
@@ -8,8 +9,10 @@ const shopRoutes = require("./routes/shop");
 
 const app = express();
 
-// CONNECT PUG
-app.set("view engine", "pug");
+// CONNECT HANDLEBARS, PUG
+app.engine("hbs", expressHbs());
+// app.set("view engine", "pug");
+app.set("view engine", "hbs");
 app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: true }));
