@@ -10,7 +10,15 @@ const shopRoutes = require("./routes/shop");
 const app = express();
 
 // CONNECT HANDLEBARS, PUG
-app.engine("hbs", expressHbs());
+app.engine(
+  "hbs",
+  expressHbs({
+    layoutsDir: "views/layouts/",
+    defaultLayout: "main-layout",
+    extname: ".hbs",
+  }),
+);
+
 // app.set("view engine", "pug");
 app.set("view engine", "hbs");
 app.set("views", "views");
@@ -28,4 +36,4 @@ app.use((req, res) => {
   res.render("404", { pageTitle: "Not Found" });
 });
 
-app.listen(3000);
+app.listen(4000);
