@@ -21,7 +21,7 @@ exports.getProducts = (req, res) => {
   Product.fetchAll((products) =>
     res.render("admin/products", {
       pageTitle: "Admin Products",
-      products,
+      prods: products,
       path: "admin/products",
     }),
   );
